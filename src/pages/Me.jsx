@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import Layout from '../components/Layout.jsx';
 
 function formatDate(iso) {
   if (!iso) return '—';
@@ -13,35 +13,13 @@ function formatDate(iso) {
 }
 
 export default function Me() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
 
   if (!user) return null;
 
   return (
-    <div className="min-h-screen bg-slate-100 dark:bg-slate-900">
-      <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
-            University Portal
-          </h1>
-          <div className="flex items-center gap-4">
-            <Link
-              to="/me"
-              className="text-sm font-medium text-indigo-600 dark:text-indigo-400"
-            >
-              My profile
-            </Link>
-            <button
-              type="button"
-              onClick={logout}
-              className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-            >
-              Log out
-            </button>
-          </div>
-        </div>
-      </header>
-      <main className="max-w-4xl mx-auto px-4 py-8">
+    <Layout>
+      <div className="max-w-4xl">
         <div className="rounded-2xl bg-white dark:bg-slate-800 shadow border border-slate-200 dark:border-slate-700 overflow-hidden">
           <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-700">
             <h2 className="text-lg font-semibold text-slate-800 dark:text-slate-100">
@@ -96,7 +74,7 @@ export default function Me() {
             )}
           </dl>
         </div>
-      </main>
-    </div>
+      </div>
+    </Layout>
   );
 }

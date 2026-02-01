@@ -4,6 +4,7 @@ import { ProtectedRoute } from './components/ProtectedRoute.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Me from './pages/Me.jsx';
+import Students from './pages/Students.jsx';
 
 export default function App() {
   return (
@@ -17,6 +18,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Me />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/students"
+            element={
+              <ProtectedRoute>
+                <Students />
               </ProtectedRoute>
             }
           />
