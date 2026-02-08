@@ -122,12 +122,15 @@ export default function Students() {
     }
     setSubmitting((prev) => ({ ...prev, attendance: true }));
     try {
-      await createAttendance({
+      const payload = {
         student_id: Number(attendanceForm.student_id),
         subject_id: Number(attendanceForm.subject_id),
-        visit_day: attendanceForm.visit_day.trim(),
         visited: attendanceForm.visited,
-      });
+      };
+      if (attendanceForm.visit_day && attendanceForm.visit_day.trim()) {
+        payload.visit_day = attendanceForm.visit_day.trim();
+      }
+      await createAttendance(payload);
       setAttendanceForm(initialAttendanceForm);
       await load();
     } catch (err) {
