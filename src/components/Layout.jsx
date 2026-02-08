@@ -29,6 +29,12 @@ export default function Layout({ children }) {
             >
               Students
             </Link>
+            <Link
+              to="/structure"
+              className="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+            >
+              Structure
+            </Link>
             <button
               type="button"
               onClick={logout}

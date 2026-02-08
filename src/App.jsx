@@ -5,7 +5,7 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Me from './pages/Me.jsx';
 import Students from './pages/Students.jsx';
-import Faculties from './pages/Faculties.jsx';
+import Structure from './pages/Structure.jsx';
 
 export default function App() {
   return (
@@ -31,10 +31,10 @@ export default function App() {
             }
           />
           <Route
-            path="/faculties"
+            path="/structure"
             element={
               <ProtectedRoute>
-                <Faculties />
+                <Structure />
               </ProtectedRoute>
             }
           />
